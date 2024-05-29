@@ -1,0 +1,1 @@
+These do complete the migration and containerizing however you have to declare all of the intricate files directories so on as well as the destination and location IPs to begin with on 3 it does it itself you just put in the destination.

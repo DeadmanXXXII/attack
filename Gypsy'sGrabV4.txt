@@ -1,0 +1,2 @@
+Just swap out the IP addresses and give it a file path for triggering and upload remotely or on site.
+This will leave the server with bare metal and condense appropriately accordingly.
