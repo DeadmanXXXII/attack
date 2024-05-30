@@ -1,0 +1,45 @@
+
+### Step 1: Clone the Repository
+Clone the repository containing the server migration tool code to your local machine.
+
+### Step 2: Install Dependencies
+Make sure you have Rust installed on your system. You can install Rust from the official website: [rust-lang.org](https://www.rust-lang.org/).
+
+### Step 3: Navigate to the Project Directory
+Using your terminal or command prompt, navigate to the directory where you cloned the repository.
+
+### Step 4: Build the Project
+Run the following command to build the project:
+
+bash
+cargo build --release
+```
+
+This will compile the code and create an executable file in the `target/release` directory.
+
+### Step 5: Run the Executable
+Navigate to the `target/release` directory and run the executable file. You can do this by executing the following command:
+
+bash
+./<executable_name>
+```
+
+Replace `<executable_name>` with the name of the executable file generated in the previous step.
+
+### Step 6: Use the GUI
+Once you run the executable, the GUI window for the server migration tool will appear. You will see input fields for the source IP, destination IP, upload directory, and container registry. Fill in these fields with the appropriate information.
+
+### Step 7: Start the Migration
+After filling in the required information, click the "Start Migration" button. This will trigger the migration process.
+
+### Step 8: Monitor Progress
+As the migration process runs, you will see status updates in the GUI window. The tool will log progress messages, including any errors encountered during the migration process.
+
+### Step 9: Review Results
+Once the migration process is complete, review the results in the GUI window. If there were any errors, you can check the log file (`migration.log`) for more details.
+
+### Step 10: Cleanup
+After completing the migration, you can close the GUI window. If you no longer need the tool, you can delete the executable file and any associated files or directories.
+
+That's it! You've successfully set up and used the server migration tool with the GTK GUI. If you have any questions or encounter any issues, feel free to ask for further assistance.
+themadhattersplayground@gmail.com
