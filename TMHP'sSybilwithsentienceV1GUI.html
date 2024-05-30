@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Reinforcement Learning</title>
+</head>
+<body>
+    <h1>Gypsy'sGrab</h1>
+    <form id="inputForm">
+        <label for="num_qubits">Number of Qubits:</label>
+        <input type="number" id="num_qubits" name="num_qubits"><br><br>
+        <label for="num_iterations">Number of Iterations:</label>
+        <input type="number" id="num_iterations" name="num_iterations"><br><br>
+        <label for="num_actions">Number of Actions:</label>
+        <input type="number" id="num_actions" name="num_actions"><br><br>
+        <button type="submit">Execute</button>
+    </form>
+    <pre id="output"></pre>
+    <footer>Built by DeadmanXXXII</footer>
+
+    <script>
+        document.getElementById('inputForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const num_qubits = document.getElementById('num_qubits').value;
+            const num_iterations = document.getElementById('num_iterations').value;
+            const num_actions = document.getElementById('num_actions').value;
+
+            const response = await fetch('http://localhost:8000/execute', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ num_qubits, num_iterations, num_actions })
+            });
+
+            const result = await response.json();
+            document.getElementById('output').innerText = result.message;
+        });
+    </script>
+</body>
+</html>
