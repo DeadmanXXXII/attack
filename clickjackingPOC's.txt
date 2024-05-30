@@ -1,0 +1,84 @@
+clickjacking proof of concept (POC):
+
+### Step-by-Step Instructions
+
+#### Step 1: Prepare Your Environment
+
+1. **Ensure You Have a Web Server:**
+   - You'll need a web server to host the HTML file. You can use any web server, such as Apache, Nginx, or a simple server provided by Python.
+
+2. **Install a Simple HTTP Server (Optional):**
+   - If you don't have a web server, you can use Python's built-in HTTP server for simplicity.
+   - Ensure Python is installed on your system. You can download it from [python.org](https://www.python.org/).
+
+#### Step 2: Save the HTML File
+
+1. **Create a New HTML File:**
+   - Open a text editor (e.g., Notepad, VSCode, Sublime Text).
+   - Copy and paste the provided HTML code into the text editor.
+
+2. **Save the File:**
+   - Save the file with a `.html` extension. For example, save it as `clickjacking_poc.html`.
+
+#### Step 3: Host the HTML File
+
+1. **Using a Local Web Server (Python):**
+   - Open a terminal or command prompt.
+   - Navigate to the directory where you saved the `clickjacking_poc.html` file.
+   - Run the following command to start a simple HTTP server:
+     ```sh
+     python -m http.server 8000
+     ```
+   - This will start a web server on port 8000.
+
+2. **Using Another Web Server:**
+   - If you're using another web server (e.g., Apache, Nginx), move the HTML file to the web server's root directory and configure the server to serve the file.
+
+#### Step 4: Access the HTML File
+
+1. **Open a Web Browser:**
+   - Open your preferred web browser (e.g., Chrome, Firefox, Edge).
+
+2. **Navigate to the Hosted HTML File:**
+   - If you're using the Python HTTP server, go to:
+     ```
+     http://localhost:8000/clickjacking_poc.html
+     ```
+   - If you're using another web server, navigate to the URL where the file is hosted.
+
+#### Step 5: Interact with the POC
+
+1. **Observe the Visible Content:**
+   - You will see a heading that says "Click here for a free gift!" and a button labeled "Click me!".
+
+2. **Click the Button:**
+   - Click on the "Click me!" button. Since the button is overlaid with an invisible iframe, your click will actually interact with the content loaded in the iframe.
+
+#### Step 6: Understand the Clickjacking Concept
+
+1. **Concept Explanation:**
+   - When you click the visible button, the click is actually interacting with the invisible iframe (which points to a URL you specified, e.g., `http://exampleURLhere.com/login-page`).
+
+2. **Implications:**
+   - This demonstrates how an attacker can trick users into performing actions on another website without their knowledge, such as logging into a fake site, clicking malicious links, etc.
+
+### Security Recommendations
+
+1. **Prevent Clickjacking on Your Sites:**
+   - Use `X-Frame-Options` header:
+     ```http
+     X-Frame-Options: DENY
+     ```
+   - Use Content Security Policy (CSP):
+     ```http
+     Content-Security-Policy: frame-ancestors 'none';
+     ```
+
+2. **Test Security Measures:**
+   - Verify that your web application cannot be embedded in an iframe by testing with similar POCs in a controlled environment.
+
+### Educational Use Only
+
+- **Note:** This POC is for educational purposes only. Do not use it for malicious activities. Understanding clickjacking helps in developing better security measures to protect web applications and users from such attacks.
+
+If you have any specific questions or need further assistance, feel free to ask!
