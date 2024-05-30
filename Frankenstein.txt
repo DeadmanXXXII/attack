@@ -25,9 +25,4 @@ step-by-step guide
    ```
 
 6. **Test the GUI:**
-   After compiling, the GUI window should appear with a dropdown menu containing three options: "Linux Observation Task," "Windows Observation Task," and "MP4 Analysis Task." Select one of the options from the dropdown menu and click the "Execute Task" button. You should see the output printed in the terminal/console.
-
-7. **Experiment:**
-   You can experiment further by adding more observation tasks or enhancing the GUI with additional features as per your requirements.
-
-That's it! You should now have the Rust code with a GTK GUI running successfully on your system.
+   After compiling, the GUI window should appear with a dropdown menu containing three options: "Linux Observation Task," "Network Traffic," "Windows Observation Task," and "MP4 Analysis Task." Select one of the options from the dropdown menu and click the "Execute Task" button. You should see the output printed in the terminal/console.
