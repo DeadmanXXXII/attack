@@ -1,6 +1,4 @@
-
-
-### Step 1: Set Up the Rust Backend
+### Step 1: Setting Up the Rust Backend
 
 1. **Create a new Rust project:**
     ```bash
@@ -9,61 +7,90 @@
     ```
 
 2. **Update `Cargo.toml` to include dependencies:**
-    Add the following dependencies:
-    ```toml
-    [dependencies]
-    rocket = "0.5.0-rc.1"
-    serde = { version = "1.0", features = ["derive"] }
-    serde_json = "1.0"
-    qrand = "0.2"
-    rand = "0.8"
-    ```
+    - Add dependencies for `rocket`, `serde`, `serde_json`, `qrand`, and `rand`.
 
 3. **Implement the backend logic in `src/main.rs`:**
-    Implement the necessary Rust code that defines the server and the endpoints for handling the quantum reinforcement learning.
+    - Define a Rocket server with endpoints to handle the quantum reinforcement learning logic.
+    - Ensure the server can receive parameters for the number of qubits, iterations, and actions.
 
-### Step 2: Set Up the Frontend
+### Step 2: Setting Up the Frontend
 
-1. **Create a new directory for the frontend:**
+1. **Create a directory for the frontend:**
     ```bash
     mkdir frontend
     cd frontend
     ```
 
 2. **Create `index.html`:**
-    Create an HTML file that defines the form and JavaScript code to interact with the Rust backend.
+    - Design an HTML form to collect inputs for the number of qubits, iterations, and actions.
+    - Include JavaScript to send a POST request with these inputs to the Rust backend and display the result.
 
-### Step 3: Run the Backend Server
+### Step 3: Running the Backend Server
 
-1. **Navigate to your Rust project directory and start the Rocket server:**
+1. **Navigate to your Rust project directory:**
+    ```bash
+    cd quantum_reinforcement
+    ```
+
+2. **Run the Rocket server:**
     ```bash
     cargo run
     ```
 
-### Step 4: Serve the Frontend
+### Step 4: Serving the Frontend
 
-1. **Navigate to the `frontend` directory:**
+1. **Navigate to the frontend directory:**
     ```bash
     cd frontend
     ```
 
 2. **Start a simple HTTP server to serve the `index.html` file:**
-    You can use Python's built-in HTTP server for this purpose:
+    - Using Python:
     ```bash
     python3 -m http.server 8080
     ```
 
-### Step 5: Access the Application
+### Step 5: Accessing and Using the Application
 
-1. **Open a web browser and navigate to `http://localhost:8080` to access the frontend.**
-    - Fill in the input fields (number of qubits, iterations, and actions).
-    - Click "Execute" to run the quantum reinforcement learning process.
-    - The output will be displayed below the form.
+1. **Open a web browser and navigate to `http://localhost:8080`.**
+
+2. **Using the Application:**
+    - **Fill in the inputs:**
+        - Number of qubits
+        - Number of iterations
+        - Number of actions
+    - **Click "Execute":**
+        - The frontend sends the inputs to the backend.
+        - The backend performs the quantum reinforcement learning process and returns the results.
+    - **View the Results:**
+        - The results are displayed below the form in the frontend.
+
+### Detailed Instructions for Use
+
+1. **Start the Backend Server:**
+    - Open a terminal and navigate to the Rust project directory.
+    - Run `cargo run` to start the Rocket server.
+
+2. **Start the Frontend Server:**
+    - Open another terminal and navigate to the `frontend` directory.
+    - Run `python3 -m http.server 8080` to start the HTTP server.
+
+3. **Interact with the Application:**
+    - Open a web browser and go to `http://localhost:8080`.
+    - Enter the desired number of qubits, iterations, and actions.
+    - Click "Execute" to send the inputs to the backend and process the quantum reinforcement learning.
+    - The output from the backend will be displayed on the web page.
 
 ### Summary
 
-- **Backend:** Set up a Rocket-based Rust server to handle the quantum reinforcement learning logic.
-- **Frontend:** Create a simple HTML page with a form to collect user inputs and JavaScript to send those inputs to the Rust server.
-- **Interaction:** The frontend sends user inputs to the backend, which processes them and returns the results, displayed by the frontend.
+- **Backend:**
+  - Rust project with Rocket server.
+  - Handles quantum reinforcement learning logic.
+  - Exposes endpoints to receive parameters and return results.
 
-This guide ensures you have an interactive full stack application without integrating the frontend directly into the backend. You can modify and expand the functionality as needed.
+- **Frontend:**
+  - HTML form to collect user inputs.
+  - JavaScript to communicate with the backend.
+  - Displays results returned from the backend.
+
+By following these steps, you'll set up and run a full-stack application for quantum reinforcement learning with an interactive frontend and a Rust-based backend.
