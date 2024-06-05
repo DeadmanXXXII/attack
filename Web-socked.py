@@ -46,7 +46,7 @@ def main():
 
     # Create a new top-level window for the GUI
     window = tk.Toplevel(root)
-    window.title("Generic Solver")
+    window.title("Web-Socked")
 
     # Header
     header = tk.Label(window, text="Generic Solver Tool", font=("Helvetica", 16))
