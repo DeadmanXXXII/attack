@@ -12,11 +12,11 @@ class SystemDisruptionApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Disruption")
-        
+
         # Header
         self.header_label = ttk.Label(root, text="Disruption", font=('Arial', 18, 'bold'))
         self.header_label.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
-        
+
         self.target_ip_var = tk.StringVar()
         self.target_port_var = tk.StringVar()
         self.important_directory_var = tk.StringVar()
@@ -42,7 +42,7 @@ class SystemDisruptionApp:
         # Start Button
         self.start_button = ttk.Button(root, text="Start Attack", command=self.start_attack)
         self.start_button.grid(row=5, column=0, columnspan=2, padx=5, pady=5)
-        
+
         # Footer
         self.footer_label = ttk.Label(root, text="Built by DeadmanXXXII", font=('Arial', 10, 'italic'))
         self.footer_label.grid(row=6, column=0, columnspan=2, padx=5, pady=5)
