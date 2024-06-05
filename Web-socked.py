@@ -49,7 +49,7 @@ def main():
     window.title("Web-Socked")
 
     # Header
-    header = tk.Label(window, text="Generic Solver Tool", font=("Helvetica", 16))
+    header = tk.Label(window, text="Web-Socked", font=("Helvetica", 16))
     header.pack(pady=10)
 
     # Input fields
