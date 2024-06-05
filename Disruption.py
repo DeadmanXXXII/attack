@@ -11,7 +11,7 @@ import subprocess
 class SystemDisruptionApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("System Disruption Tool")
+        self.root.title("Disruption")
         
         # Header
         self.header_label = ttk.Label(root, text="Disruption", font=('Arial', 18, 'bold'))
