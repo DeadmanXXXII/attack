@@ -14,7 +14,7 @@ class SystemDisruptionApp:
         self.root.title("System Disruption Tool")
         
         # Header
-        self.header_label = ttk.Label(root, text="System Disruption Tool", font=('Arial', 18, 'bold'))
+        self.header_label = ttk.Label(root, text="Disruption", font=('Arial', 18, 'bold'))
         self.header_label.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
         
         self.target_ip_var = tk.StringVar()
