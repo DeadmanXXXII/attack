@@ -1,3 +1,109 @@
 Just swap out the IP addresses and give it a file path for triggering and upload remotely or on site.
 Information Left: Depending on the implementation details, temporary files created during data synchronization or containerization might be left behind.
 If you do not explicitly remove Docker images, they will remain on the server.
+
+markdown
+# Gypsy’s Grab v4
+
+## Overview
+
+**Gypsy’s Grab v4** is a Rust-based CLI tool designed for server migration tasks. It monitors a specified directory for file changes, triggers the migration process, and performs various tasks such as data synchronization, containerization, and network configuration.
+
+## Features
+
+- **File Watching:** Monitors changes in a specified directory to trigger migration.
+- **Data Synchronization:** Uses `rsync` to synchronize files between source and destination servers.
+- **Containerization:** Builds and runs Docker containers based on server components.
+- **Network Configuration:** Configures network settings on the destination server using SSH commands.
+- **Migration Validation:** Validates the success of the migration process.
+- **Source Server Cleanup:** Cleans up the upload directory on the source server after migration.
+
+## Prerequisites
+
+### 1. Install Rust
+
+You need Rust and Cargo (Rust’s package manager) installed on your system. If you don’t have Rust installed, you can install it using the following command:
+
+bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source $HOME/.cargo/env
+2.Install Required System Packages
+You need rsync, ssh, and docker installed on your system. On Debian-based systems like Ubuntu or Kali Linux, you can install these with:
+
+bash
+Copy code
+sudo apt update
+sudo apt install rsync
+sudo apt install openssh-client
+sudo apt install docker.io
+sudo apt install docker-compose
+Make sure Docker is running:
+
+bash
+Copy code
+sudo systemctl start docker
+sudo systemctl enable docker
+3. Add Your User to the Docker Group
+To run Docker commands without sudo, add your user to the Docker group:
+
+bash
+Copy code
+sudo usermod -aG docker $USER
+You may need to log out and log back in for this change to take effect.
+
+Running the Project
+1. Clone the Repository
+Clone the GitHub repository to your local machine:
+
+bash
+Copy code
+git clone https://github.com/yourusername/gypsys_grab_v4.git
+cd gypsys_grab_v4
+2. Update Cargo.toml
+Ensure that the Cargo.toml file contains the correct dependencies as specified above.
+
+3. Build the Project
+Compile the Rust code:
+
+bash
+Copy code
+cargo build
+4. Run the Project
+Execute the compiled binary to start the application:
+
+bash
+Copy code
+cargo run
+5. Usage
+Update the Constants: Edit the UPLOAD_DIR and CONTAINER_REGISTRY constants in the main.rs file with the actual values for your migration.
+
+Configure IP Addresses: Set the source and destination IP addresses in the main() function.
+
+Monitor Directory: The tool will watch for changes in the specified directory (UPLOAD_DIR). It triggers the migration process based on file creation, modification, or deletion.
+
+Example Configuration
+Update the Rust source code with the actual paths, registry details, and IP addresses:
+
+rust
+Copy code
+const UPLOAD_DIR: &str = "/path/to/upload_directory";
+const CONTAINER_REGISTRY: &str = "your_container_registry";
+6. Testing and Validation
+Before using Gypsy’s Grab v4 in a production environment:
+
+Test with Mock Data: Verify that all features work as expected.
+Check Logs: Look at migration.log for details on the migration process.
+Adjust Configurations: Update paths, IP addresses, and registry details in the source code.
+Troubleshooting
+Rsync Errors: Ensure that rsync is installed and correctly configured.
+SSH Errors: Check SSH access to the destination server.
+Docker Issues: Verify that Docker is installed and running properly.
+Contributing
+Feel free to contribute to Gypsy’s Grab v4 by opening issues or submitting pull requests.
+
+License
+This project is licensed under the GNU v3 License. See the LICENSE file for details.
+
+Contact
+For questions or support, contact your-email@example.com.
+
