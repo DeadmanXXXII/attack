@@ -1,2 +1,3 @@
 Just swap out the IP addresses and give it a file path for triggering and upload remotely or on site.
-This will leave the server with bare metal and condense appropriately accordingly.
+Information Left: Depending on the implementation details, temporary files created during data synchronization or containerization might be left behind.
+If you do not explicitly remove Docker images, they will remain on the server.
